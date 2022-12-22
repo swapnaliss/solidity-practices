@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import './App.css';
 import Web3 from "web3";
-import Storage from "./ABI/Storage.json";
+import NewStorage from "./ABI2/NewStorage.json";
 
 function App() {
   const [value, setValue] = useState("")
 const ethereum = window.ethereum;
 const web3 = new Web3(ethereum);
 
-const contractAddress = Storage.networks["5777"].address;
-const contractAbi = Storage.abi ;
+const contractAddress = "0x612216951Dd3cAEf18ee814863854A186751AD29";
+const contractAbi = NewStorage.abi ;
 
 
 const myContract = new web3.eth.Contract(contractAbi , contractAddress);
 
 
 const getData = async () => {
-const data = await myContract.methods.storedData().call();
+const data = await myContract.methods.balance().call();
 console.log(data);
 setValue(data)
 
