@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
+
+
+contract addressTest{
+    address myAddress = 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db;
+
+    uint public contractBalance;
+
+    function getBalance()  public view returns(uint){
+      return payable(myAddress).balance;
+    }
+    function transferEtherToContract() payable public {
+        contractBalance = address(this).balance;
+    }
+    function transferAmountFromContract(address payable _to) public{
+        _to.transfer(100000000000);
+    }
+}
