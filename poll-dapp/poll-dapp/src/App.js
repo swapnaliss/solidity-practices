@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import HomePage from "./components/HomePage"
 
-function App() {
-  return (
+import Web3 from "web3";
+
+function App(){
+  const ethereum = window.ethereum;
+  const MyContractJSON = require("./contractjson/PollContract.json");
+
+  const web3 = new Web3(ethereum);     //for connected metamask wallet
+  const contraAddress = MyContractJSON.networks["5777"].address;
+  const contractAbi = MyContractJSON.abi;
+
+  const myContract = new web3.eth.Contract(contractAbi,contraAddress);
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HomePage myContract = {myContract}/>
     </div>
-  );
-}
+  )
 
+
+}
 export default App;
