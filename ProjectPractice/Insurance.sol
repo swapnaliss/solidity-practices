@@ -13,4 +13,19 @@ contract CropInsurance {
         
         }
         mapping(uint => Policy) public policies;
+        
+        function createPolicy(uint id, string memory name,  string memory farmerName,uint farmerId,
+                 uint coveredAmount, uint premiumAmount, uint policyPeriod)public
+        {
+                  Policy storage policy = policies[id];
+                  policy.id = id;
+                  policy.name = name;
+                   policy.farmerId = farmerId;
+                 policy.farmerName = farmerName;
+                 policy.coveredAmount  = coveredAmount;
+                 policy.premiumAmount = premiumAmount;
+                 policy.policyPeriod = policyPeriod;
+                
+     
+        }
 }
