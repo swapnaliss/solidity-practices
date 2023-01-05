@@ -13,6 +13,9 @@ contract CropInsurance {
         
         }
         mapping(uint => Policy) public policies;
+ 
+       event PolicyCreation(uint id, string name,  string farmerName,uint farmerId,
+                 uint coveredAmount, uint premiumAmount, uint policyPeriod);
 
         function createPolicy(uint id, string memory name,  string memory farmerName,uint farmerId,
                  uint coveredAmount, uint premiumAmount, uint policyPeriod)public
@@ -25,10 +28,11 @@ contract CropInsurance {
                  policy.coveredAmount  = coveredAmount;
                  policy.premiumAmount = premiumAmount;
                  policy.policyPeriod = policyPeriod;
-                
+              emit PolicyCreation(id , name, farmerName,farmerId, coveredAmount,premiumAmount,policyPeriod  );
+
      
         }
-        
+
         function getPolicy(uint id) public view returns(uint, string memory,uint, string memory, uint, uint, uint)
          {
          Policy storage policy = policies[id];
