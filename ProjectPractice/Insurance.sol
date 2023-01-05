@@ -12,4 +12,5 @@ contract CropInsurance {
         uint policyPeriod;
         
         }
+        mapping(uint => Policy) public policies;
 }
