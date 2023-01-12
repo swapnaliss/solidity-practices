@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.17;
 
-import "node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract LandRegistration  is ERC721 {
 
@@ -27,6 +27,7 @@ constructor() ERC721("Land", "LND") {}
     
     function registerNewLand(uint surveyNo, string memory district, string memory taluk, string memory village, uint blockNo, uint landValue, uint area) public {
         LandDetails[registeredLandCount] = LandDetail(surveyNo, district, taluk, village, blockNo, landValue, area, false);
+        _mint(msg.sender, registeredLandCount); //for creating new token
         registeredLandCount += 1;
     }
     
