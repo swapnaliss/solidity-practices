@@ -26,6 +26,7 @@ contract LandSale is LandRegistration {
     
     function acceptBid(uint256 landID) public  {
         payable(msg.sender).transfer(BidDetails[landID].highestBid);
+        safeTransferFrom(msg.sender, BidDetails[landID].highestBidder, landID);  //to transfer the ownership of a token to another person.
         for (uint256 i = 0; i < BidDetails[landID].bidders.length; i++) {
             if (BidDetails[landID].bidders[i] == BidDetails[landID].highestBidder) {
                 continue;
