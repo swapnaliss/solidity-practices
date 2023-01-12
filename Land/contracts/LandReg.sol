@@ -4,7 +4,9 @@ pragma solidity 0.8.17;
 
 import "node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract LandRegistration  {
+contract LandRegistration  is ERC721 {
+
+constructor() ERC721("Land", "LND") {}
 
     struct LandDetail {
         uint surveyNo;
