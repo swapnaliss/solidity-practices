@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
-
+import Switch from "@mui/material/Switch";
 import { Routes, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
@@ -31,7 +31,7 @@ export default function HomePage() {
             <FormGroup>
             <FormControlLabel
                 control={
-                  <Routes
+                  <Switch
                     color="default"
                     checked={auth}
                     onChange={handleChange}
@@ -46,7 +46,7 @@ export default function HomePage() {
             </Typography>
             {auth && (
               <div className="Register">
-                <Typography variant="h5" component="div" sx={{ paddingTop: 1 }}>
+                <Typography variant="h6" component="div" sx={{ paddingTop: 1 }}>
                   Register New Land
                 </Typography>
                 <IconButton size="large" color="inherit">
