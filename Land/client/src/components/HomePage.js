@@ -8,16 +8,16 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { Routes, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [auth, setAuth] = React.useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const redirectHandle = () => {
-  //   navigate('/register');
-  // };
+  const redirectHandle = () => {
+    navigate('/register');
+  };
 
   const handleChange = async (event) => {
     setAuth(event.target.checked);
@@ -29,9 +29,9 @@ export default function HomePage() {
         <AppBar position="static">
           <Toolbar>
             <FormGroup>
-              <FormControlLabel
+            <FormControlLabel
                 control={
-                  <BrowserRouter
+                  <Routes
                     color="default"
                     checked={auth}
                     onChange={handleChange}
@@ -50,13 +50,13 @@ export default function HomePage() {
                   Register New Land
                 </Typography>
                 <IconButton size="large" color="inherit">
-                  {/* <AddBoxIcon onClick={redirectHandle} /> */}
+                  <AddBoxIcon onClick={redirectHandle} />
                 </IconButton>
               </div>
             )}
           </Toolbar>
         </AppBar>
-
+      
       </Box>
     </div>
   );
