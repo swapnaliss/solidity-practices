@@ -29,17 +29,6 @@ export default function HomePage() {
         <AppBar position="static">
           <Toolbar>
             <FormGroup>
-              <FormControlLabel
-                control={
-                  <BrowserRouter
-                    color="default"
-                    checked={auth}
-                    onChange={handleChange}
-                    aria-label="login switch"
-                  />
-                }
-                label={auth ? "Logout" : "Login"}
-              />
             </FormGroup>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               LAND MARKETPLACE
@@ -56,7 +45,7 @@ export default function HomePage() {
             )}
           </Toolbar>
         </AppBar>
-
+      
       </Box>
     </div>
   );
