@@ -8,7 +8,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 
-import { BrowserRouter, Routes, useNavigate } from "react-router-dom";
+import { Routes, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [auth, setAuth] = React.useState(false);
