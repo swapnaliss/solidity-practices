@@ -8,16 +8,16 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [auth, setAuth] = React.useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const redirectHandle = () => {
-  //   navigate('/register');
-  // };
+  const redirectHandle = () => {
+    navigate('/register');
+  };
 
   const handleChange = async (event) => {
     setAuth(event.target.checked);
@@ -29,6 +29,17 @@ export default function HomePage() {
         <AppBar position="static">
           <Toolbar>
             <FormGroup>
+            <FormControlLabel
+                control={
+                  <Routes
+                    color="default"
+                    checked={auth}
+                    onChange={handleChange}
+                    aria-label="login switch"
+                  />
+                }
+                label={auth ? "Logout" : "Login"}
+              />
             </FormGroup>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               LAND MARKETPLACE
@@ -39,7 +50,7 @@ export default function HomePage() {
                   Register New Land
                 </Typography>
                 <IconButton size="large" color="inherit">
-                  {/* <AddBoxIcon onClick={redirectHandle} /> */}
+                  <AddBoxIcon onClick={redirectHandle} />
                 </IconButton>
               </div>
             )}
