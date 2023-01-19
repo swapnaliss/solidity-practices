@@ -18,7 +18,7 @@ const districts = [
   "Kollam",
   "Pathanamthitta",
   "Alappuzha",
-  "Kottayam",
+  "Kottayam",,
   "Idukki",
   "Ernakulam",
   "Thrissur",

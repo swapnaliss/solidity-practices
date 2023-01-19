@@ -8,6 +8,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Switch from "@mui/material/Switch";
+import Marketplace from "./Marketplace";
 import { Routes, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
@@ -56,7 +57,7 @@ export default function HomePage() {
             )}
           </Toolbar>
         </AppBar>
-      
+        <Marketplace />
       </Box>
     </div>
   );
