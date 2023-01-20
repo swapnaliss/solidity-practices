@@ -46,7 +46,6 @@ const NewLand = (props) => {
     const [blockNo, setBlockNo] = useState("");
     const [price, setPrice] = useState("");
     const [area, setArea] = useState("");
-    const [hash, setHash] = useState("");
     const [file, setFile] = useState("");
     const [fileName, setFileName] = useState("");
   
