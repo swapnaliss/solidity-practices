@@ -17,6 +17,9 @@ const contractAbi = MyContractJSON.abi; //get the ABI from the artifact file
 
 const web3 = new Web3(ethereum); //Connect the web3 to the MetaMask wallet using the ethereum object
 
+
+const myContract = new Web3.eth.Contract(contractAbi , contractAddress);  //create the smart contract object.
+
 function App() {
   return (
     <div>
