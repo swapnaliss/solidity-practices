@@ -12,6 +12,9 @@ const MyContractJSON = require("../src/contractJSON/LandSale.json"); // load the
 
 const contractAddress = MyContractJSON.networks["5777"].address; // get the deployed contract address from MyContractJSON
 
+
+const contractAbi = MyContractJSON.abi; //get the ABI from the artifact file
+
 function App() {
   return (
     <div>
