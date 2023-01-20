@@ -5,6 +5,8 @@ import NewLand from './components/NewLand';
 import Auction from './components/Auction';
 import Web3 from "web3"; //imported web 3 library which is installed
 
+const ethereum = window.ethereum;  //object can be used to establish the connection between the decentralized application and MetaMask
+
 function App() {
   return (
     <div>
