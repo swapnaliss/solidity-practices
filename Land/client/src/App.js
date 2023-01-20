@@ -18,17 +18,17 @@ const contractAbi = MyContractJSON.abi; //get the ABI from the artifact file
 const web3 = new Web3(ethereum); //Connect the web3 to the MetaMask wallet using the ethereum object
 
 
-const myContract = new Web3.eth.Contract(contractAbi , contractAddress);  //create the smart contract object.
+const myContract = new web3.eth.Contract(contractAbi , contractAddress);  //create the smart contract object.
 
 function App() {
   return (
     <div>
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<HomePage/>} ></Route>
-        <Route path="/register" element={<NewLand/>}>
+        <Route path="/*" element={<HomePage myContract={myContract}/>} ></Route>
+        <Route path="/register" element={<NewLand  myContract={myContract} web3={web3}/>}>
         </Route>`
-          <Route path="/land/:landId"element={<Auction />}> </Route>
+          <Route path="/land/:landId"element={<Auction myContract={myContract} web3={web3}/>}> </Route>
             
          
             
