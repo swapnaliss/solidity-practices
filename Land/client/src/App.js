@@ -15,6 +15,8 @@ const contractAddress = MyContractJSON.networks["5777"].address; // get the depl
 
 const contractAbi = MyContractJSON.abi; //get the ABI from the artifact file
 
+const web3 = new Web3(ethereum); //Connect the web3 to the MetaMask wallet using the ethereum object
+
 function App() {
   return (
     <div>
