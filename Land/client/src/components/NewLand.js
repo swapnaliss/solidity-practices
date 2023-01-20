@@ -36,6 +36,9 @@ const NewLand = (props) => {
   const ethereum = window.ethereum;
   const web3 = props.web3;
 
+  const ipfs = create("https://ipfs.infura.io:5001/api/v0");
+
+
     const [district, setDistrict] = React.useState("");
     const [taluk, setTaluk] = useState("");
     const [surveyNo, setSurveyNo] = useState("");
