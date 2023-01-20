@@ -7,6 +7,9 @@ import Web3 from "web3"; //imported web 3 library which is installed
 
 const ethereum = window.ethereum;  //object can be used to establish the connection between the decentralized application and MetaMask
 
+const MyContractJSON = require("../src/contractJSON/LandSale.json"); // load the artifact file of the deployed contract 
+console.log("MyContractJSON");
+
 function App() {
   return (
     <div>
