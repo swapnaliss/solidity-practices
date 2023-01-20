@@ -59,7 +59,7 @@ export default function HomePage(props) {
             )}
           </Toolbar>
         </AppBar>
-        <Marketplace />
+        <Marketplace myContract = {myContract} />   
       </Box>
     </div>
   );
