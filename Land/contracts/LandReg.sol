@@ -17,6 +17,7 @@ constructor() ERC721("Land", "LND") {}
         uint landValue; // in wei
         uint area;
         bool salesStatus;
+        bytes documentHash;
     }
     
     mapping(uint => LandDetail) LandDetails;
@@ -25,8 +26,8 @@ constructor() ERC721("Land", "LND") {}
     
     bool salesStatus;
     
-    function registerNewLand(uint surveyNo, string memory district, string memory taluk, string memory village, uint blockNo, uint landValue, uint area) public {
-        LandDetails[registeredLandCount] = LandDetail(surveyNo, district, taluk, village, blockNo, landValue, area, false);
+    function registerNewLand(uint surveyNo, string memory district, string memory taluk, string memory village, uint blockNo, uint landValue, uint area, bytes memory documentHash) public {
+        LandDetails[registeredLandCount] = LandDetail(surveyNo, district, taluk, village, blockNo, landValue, area, false , documentHash);
         _mint(msg.sender, registeredLandCount); //for creating new token
         registeredLandCount += 1;
     }
