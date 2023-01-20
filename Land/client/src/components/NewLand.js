@@ -85,6 +85,15 @@ const NewLand = (props) => {
   
     const submitHandler = async (event) => {
       event.preventDefault();
+
+      let url;
+      try {
+        const added = await ipfs.add(file);
+        url = 'https://ipfs.infura.io/ipfs/' + added.path;
+      } catch (error) {
+        console.log("Error uploading file: ", error);
+      }
+      await myContract.methods.registerNewLand(surveyNo,district,taluk,village,blockNo,price,area,web3.utils.asciiToHex(url)).send({ from: ethereum.selectedAddress });
     };
   return (
    
