@@ -11,8 +11,10 @@ import Switch from "@mui/material/Switch";
 import Marketplace from "./Marketplace";
 import { Routes, useNavigate } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage(props) {
   const [auth, setAuth] = React.useState(false);
+
+  const myContract = props.myContract;  //Enable props variable in the function and receive the ‘myContract’ object from props.
 
   const navigate = useNavigate();
 
