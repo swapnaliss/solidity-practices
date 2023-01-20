@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
+import { create } from "ipfs-http-client";
+
 
 const districts = [
   "Thiruvanathapuram",
@@ -29,7 +31,14 @@ const districts = [
   "Kannur",
   "Kasargod",
 ];
-const NewLand = () => {
+const NewLand = (props) => {
+  const myContract = props.myContract;
+  const ethereum = window.ethereum;
+  const web3 = props.web3;
+
+  const ipfs = create("https://ipfs.infura.io:5001/api/v0");
+
+
     const [district, setDistrict] = React.useState("");
     const [taluk, setTaluk] = useState("");
     const [surveyNo, setSurveyNo] = useState("");
@@ -37,7 +46,6 @@ const NewLand = () => {
     const [blockNo, setBlockNo] = useState("");
     const [price, setPrice] = useState("");
     const [area, setArea] = useState("");
-    const [hash, setHash] = useState("");
     const [file, setFile] = useState("");
     const [fileName, setFileName] = useState("");
   
@@ -76,6 +84,15 @@ const NewLand = () => {
   
     const submitHandler = async (event) => {
       event.preventDefault();
+
+      let url;
+      try {
+        const added = await ipfs.add(file);
+        url = 'https://ipfs.infura.io/ipfs/' + added.path;
+      } catch (error) {
+        console.log("Error uploading file: ", error);
+      }
+      await myContract.methods.registerNewLand(surveyNo,district,taluk,village,blockNo,price,area,web3.utils.asciiToHex(url)).send({ from: ethereum.selectedAddress });
     };
   return (
    

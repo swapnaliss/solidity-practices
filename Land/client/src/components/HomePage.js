@@ -11,9 +11,12 @@ import Switch from "@mui/material/Switch";
 import Marketplace from "./Marketplace";
 import { Routes, useNavigate } from "react-router-dom";
 
-export default function HomePage() {
+
+export default function HomePage(props) {
   const [auth, setAuth] = React.useState(false);
 
+  const myContract = props.myContract;  //Enable props variable in the function and receive the ‘myContract’ object from props.
+  const ethereum = window.ethereum;  //GET metamask object
   const navigate = useNavigate();
 
   const redirectHandle = () => {
@@ -21,7 +24,9 @@ export default function HomePage() {
   };
 
   const handleChange = async (event) => {
-    setAuth(event.target.checked);
+    await ethereum.request({ method: "eth_requestAccounts" })    
+    .then(setAuth(event.target.checked));    
+    
   };
 
   return (
@@ -57,7 +62,7 @@ export default function HomePage() {
             )}
           </Toolbar>
         </AppBar>
-        <Marketplace />
+        <Marketplace myContract = {myContract} />   
       </Box>
     </div>
   );
