@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
+import { create } from "ipfs-http-client";
+
 
 const districts = [
   "Thiruvanathapuram",
@@ -29,7 +31,11 @@ const districts = [
   "Kannur",
   "Kasargod",
 ];
-const NewLand = () => {
+const NewLand = (props) => {
+  const myContract = props.myContract;
+  const ethereum = window.ethereum;
+  const web3 = props.web3;
+
     const [district, setDistrict] = React.useState("");
     const [taluk, setTaluk] = useState("");
     const [surveyNo, setSurveyNo] = useState("");
