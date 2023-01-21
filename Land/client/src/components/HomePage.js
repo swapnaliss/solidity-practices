@@ -16,14 +16,15 @@ export default function HomePage(props) {
   const [auth, setAuth] = React.useState(false);
 
   const myContract = props.myContract;  //Enable props variable in the function and receive the ‘myContract’ object from props.
-  const ethereum = window.ethereum;  //GET metamask object
+ 
   const navigate = useNavigate();
 
   const redirectHandle = () => {
-    navigate('/register');
+    navigate.push('/register');
   };
 
   const handleChange = async (event) => {
+    const ethereum = window.ethereum;  //GET metamask object
     await ethereum.request({ method: "eth_requestAccounts" })    
     .then(setAuth(event.target.checked));    
     
